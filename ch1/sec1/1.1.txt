@@ -1,0 +1,83 @@
+Exercise 1.1: Below is a sequence of expressions. What is
+the result printed by the interpreter in response to each ex-
+pression? Assume that the sequence is to be evaluated in
+the order in which it is presented.
+
+Expression:
+10
+Value:
+10
+
+Expression:
+(+ 5 3 4)
+Value: 
+5 + 3 + 4 = 12
+
+Expression:
+(- 9 1)
+Value: 
+9-1=  8
+
+Expression:
+(/ 6 2)
+Value:
+6/2 = 3
+
+Expression:
+(+ (* 2 4) (- 4 6))
+Value:
+(2*4) + (4-6) = 8 + (-2) = 6
+
+Expression:
+(define a 3)
+Value:
+? - 3
+
+Expression:
+(define b (+ a 1))
+Value:
+? - 4
+
+Expression:
+(+ a b (* a b))
+Value:
+3 + 4 + (3 * 4) = 19
+
+Expression:
+(= a b)
+Value:
+False
+
+Expression:
+(if (and (> b a) (< b (* a b)))
+    b
+    a)
+Value:
+b > a = 4 > 3 = true
+b < (a * b) = 4 < (4 * 3) = 4 < 12 = true
+true and true = true
+4
+
+Expression:
+(cond   ((= a 4) 6)
+        ((= b 4) (+ 6 7 a))
+        (else 25))
+Value
+a not equal to 4.
+b equals 4, so choose that corresponding expression
+6 + 7 + a = 6 + 7 + 3 = 16
+
+Expression:
+(+ 2 (if (> b a) b a))
+Value:
+b is greater than a, so choose b = 4
+2 + 4 = 6
+
+Expression:
+(*  (cond       ((> a b) a)
+                ((< a b) b)
+                (else -1))
+    (+ a 1))
+
+Value:
+4 * (3  + 1) = 16

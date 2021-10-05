@@ -1,0 +1,47 @@
+Exercise 1.5: Ben Bitdiddle has invented a test to determine
+whether the interpreter he is faced with is using applicative-
+order evaluation or normal-order evaluation. He defines the
+following two procedures:
+
+(define (p) (p))
+
+(define (test x y)
+    (if (= x 0) 0 y))
+
+Then he evaluates the expression
+
+(test 0 (p))
+
+What behavior will Ben observe with an interpreter that
+uses applicative-order evaluation? What behavior will he
+observe with an interpreter that uses normal-order evalu-
+ation? Explain your answer. (Assume that the evaluation
+27rule for the special form if is the same whether the in-
+terpreter is using normal or applicative order: The predi-
+cate expression is evaluated first, and the result determines
+whether to evaluate the consequent or the alternative ex-
+pression.)
+
+
+Recall that applicative order is equivalent to evaluating the leftmost
+expression, followed by the argument expressions, then evaluting the 
+application of the arguments to the leftmost.
+Also note that the first line defines a procedure p, 
+taking no arguments and returning the value of a call to p (infinite recursion...)
+
+In applicative order:
+(test 0 (p))
+test evalutes to the instructions of the procedure defined above.
+0 evalutes to the value 0.
+(p) evaluates to (p), which evaluates to (p),... 
+We get an infinite loop.
+
+
+In normal order:
+(test 0 (p))
+(if (= 0 0) 0 (p))
+(if (true) 0 (p))
+0
+
+We do not evalute (p) according to the rules given above for evaluating an
+if expression. So, we get to avoid the infinite loop.

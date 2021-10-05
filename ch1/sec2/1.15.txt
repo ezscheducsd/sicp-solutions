@@ -1,0 +1,15 @@
+sine of angle 
+sin x ~= x if x is sufficiently small.
+
+sin x = 3sin(x/3) - 4sin^3(x/3)
+
+What is the order of growth in space and number of
+steps (as a function of a) used by the process generated
+by the sine procedure when (sine a) is evaluated?
+
+Order of growth in space is the maximum depth
+of the recursive tree.
+The bottom is reached when x is sufficiently small,
+and we get there by continually dividing
+x by 3.
+So this procedure is log_3(a) in space.

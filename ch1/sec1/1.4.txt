@@ -1,0 +1,22 @@
+Exercise 1.4: Observe that our model of evaluation allows
+for combinations whose operators are compound expres-
+sions. Use this observation to describe the behavior of the
+following procedure:
+
+(define (a-plus-abs-b a b)
+    ((if (> b 0) + -) a b))
+
+The if expression will evaluate to the machine instructions of 
+the + procedure if b is greater than 0.
+In this case, a-plus-abs-b applied to a and b will evaluate to 
+the value of a + b. This makes sense because the absolute value of a positive number
+is simply itself.
+
+
+The if expression will evalute to the machine instructions of the -
+procedure if b is less than or equal to 0.
+In this case, a-plus-abs-b applied to a and b will evaluate to the
+value of a - (-b). This makes sense because the absolute value of a non positive
+number is its opposite. 
+So if b is non positive, a + abs(b) is equivalent to a + (- b) = a - b, 
+so the procedure is also correct in this case.
