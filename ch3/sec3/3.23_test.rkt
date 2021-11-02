@@ -1,0 +1,21 @@
+#lang sicp
+
+(#%require "3.23.rkt")
+(#%require rackunit)
+
+(define d (make-deque))
+(check-true (empty-deque? d))
+(front-insert-deque! d 1)
+(front-insert-deque! d 2)
+(front-insert-deque! d 3)
+(rear-insert-deque! d 0)
+(rear-insert-deque! d -1)
+(rear-insert-deque! d -2)
+(check-eq? (front-deque d) 3)
+(check-eq? (front-delete-deque! d) 3)
+(check-eq? (rear-delete-deque! d) -2)
+(check-eq? (front-delete-deque! d) 2)
+(check-eq? (rear-delete-deque! d) -1)
+(check-eq? (rear-delete-deque! d) 0)
+(check-eq? (front-delete-deque! d) 1)
+(check-true (empty-deque? d))
