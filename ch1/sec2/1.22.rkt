@@ -17,8 +17,8 @@
 ; that programs on your machine run in time proportional to
 ; the number of steps required for the computation?
 
+(require sicp-helpers/mathlib)
 (require "prime.rkt")
-(require sicp/mathlib)
 
 (provide timed-prime-test)
 
@@ -54,9 +54,27 @@
 ;next 3 primes after 10000: 10007, 10009, 10037
 ;next 3 primes after 100000: 100003, 100019, 100043
 
+; Sample outputs for near 100.000, 1.000.000
+; 1000037***0.018798828125
+; 10000019***0.058349609375
+; quotient is about 3.1038961039, which is very close
+; to sqrt(10) approx. 3.162277
+
+; So clearly, the data very closely support the
+; Theta(sqrt(n)) prediction.
+
+; Is your result compatible with the notion that
+; programs on your computer run in time proportional to
+; the number of steps required for the computation?
+; Not sure about this one...
+; But it seems like yes? IDK
+
 
 (define (test-primes-runtime)
   (define (helper start)
-    (get-next-n-primes start 1)
+    (get-next-n-primes start 3)
     (helper (* start 10)))
   (helper 10))
+
+(module+ test
+  (test-primes-runtime))

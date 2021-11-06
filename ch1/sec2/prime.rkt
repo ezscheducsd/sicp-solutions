@@ -15,46 +15,13 @@
 ;First, we need a procedure to compute a^n modulo m.
 ;The idea:
 ;Given m, x cong. rem(x, m) modulo m.
-;y cong. rem(y, m) modulo m.
-;so xy cong. rem(x,m) * rem(y,m) modulo m.
+;         y cong. rem(y, m) modulo m.
+;         so xy cong. rem(x,m) * rem(y,m) modulo m.
 ;
 ;So to compute x^m modulo n:
 ;base case m = 0, return 1.
 ;m even? compute (rem(x^m/2, m))^2 mod m
 ;m odd?
-
-(require sicp/mathlib)
-
-(provide fast-prime? smallest-divisor smallest-divisor-fast prime? prime-sd-fast?)
-
-
-; idea: number is prime if smallest divisor is itself.
-(define (prime? n)
-  (= n (smallest-divisor n)))
-
-(define (smallest-divisor x)
-  (define (helper cur)
-    (cond ((> (square cur) x) x)
-          ((= 0 (remainder x cur)) cur)
-          (else (helper (+ 1 cur)))))
-  (helper 2))
-
-
-(define (prime-sd-fast? n)
-  (= n (smallest-divisor-fast n)))
-
-
-(define (next x)
-  (if (= x 2) 3 (+ x 2)))
-
-
-(define (smallest-divisor-fast x)
-  (define (helper cur)
-    (cond ((> (square cur) x) x)
-          ((= 0 (remainder x cur)) cur)
-          (else (helper (next cur)))))
-  (helper 2))
-
 (define (expmod base exp m)
   (cond ((= exp 0) 1)
         ((is-even? exp)
@@ -75,6 +42,21 @@
   (define (helper a)
     (= a (expmod a n n)))
   (helper (+ 1 (random (- n 1)))))
+
+
+(require sicp-helpers/mathlib)
+
+(provide fast-prime? smallest-divisor prime?)
+
+
+; idea: number is prime if smallest divisor is itself.
+
+(define (smallest-divisor x)
+  (define (helper cur)
+    (cond ((> (square cur) x) x)
+          ((= 0 (remainder x cur)) cur)
+          (else (helper (+ 1 cur)))))
+  (helper 2))
 
 
 (module+ test 

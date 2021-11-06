@@ -10,7 +10,7 @@ If cur^2 is greater than the target number, then
 the smallest divisor is just the number iself.
 |#
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (define (smallest-divisor x)
   (define (helper cur)
