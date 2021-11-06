@@ -3,7 +3,7 @@
 (require "1.3.3-fixed-point.rkt")
 (require "1.3.4-average-damp.rkt")
 (require "1.43.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; Finding the fourth root of x:
 ; Find y such that y^4 = x

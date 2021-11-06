@@ -1,7 +1,7 @@
 #lang racket
 
 (require "1.3.4-newtons-method.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; (cubic a b c) - the function that, given x,
 ; return x^3 + ax^2 + bx + c

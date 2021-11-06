@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; This produces the answer list in the reverse order
 ; of the one desired because you are

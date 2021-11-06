@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (define (double f)
   (lambda (x) (f (f x))))

@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 (require "2.2.1-map.rkt")
 
 ; A tree is represented as

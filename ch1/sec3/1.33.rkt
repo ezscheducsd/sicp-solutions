@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 (require "../sec2/prime.rkt")
 
 (define (filtered-accumulate combiner null-value term a next b filter)

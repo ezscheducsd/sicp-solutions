@@ -1,7 +1,7 @@
 #lang racket
 
 (require "2.2.1-map.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 
 (define (square-list items)

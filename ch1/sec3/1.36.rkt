@@ -16,7 +16,7 @@
   (try first-guess))
 
 (module+ test
-  (require sicp/mathlib)
+  (require sicp-helpers/mathlib)
   (define (f x)
     (/ (log 1000) (log x)))
   (define (f-damp x)

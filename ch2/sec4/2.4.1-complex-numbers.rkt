@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; Suppose we have selectors for complex numbers:
 ; real-part, imag-part, magnitude, and angle

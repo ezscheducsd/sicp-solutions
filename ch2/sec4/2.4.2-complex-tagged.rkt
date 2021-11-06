@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 (require "2.4.2-tagged-data.rkt")
 
 ; Determine if a number is rectangular or polar

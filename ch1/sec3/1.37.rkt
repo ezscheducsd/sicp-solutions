@@ -8,7 +8,7 @@
 ;
 ;Base case: if current index is equal to k, just n_k over d_k
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (provide cont-frac)
 

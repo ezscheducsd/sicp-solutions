@@ -2,7 +2,7 @@
 
 ;General product procedure.
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (define (prod term a next b)
   (if (> a b)

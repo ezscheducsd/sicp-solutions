@@ -20,7 +20,7 @@
 
 ; tolerance ratio: (t1t2)/(1 + t1t2)
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 (require "2.1.4-interval.rkt")
 (require "2.12.rkt")
 

@@ -5,7 +5,7 @@
 ;sum first term a
 
 (require "general_sum.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ;Simpson's rule for integral approximation (i to j.)
 ;First, try to get only h/3 * (y0 + y1 + ... + yn)

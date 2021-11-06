@@ -1,7 +1,7 @@
 #lang racket
 
 (require "1.42.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; repeated application n times:
 ; as a recursive procedure:

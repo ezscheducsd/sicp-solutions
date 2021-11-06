@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ;recursive accumulate.
 (define (accumulate combiner null-value term a next b)

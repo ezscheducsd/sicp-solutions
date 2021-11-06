@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; Smart object make-from-mag-ang
 ; dispatches on operation symbols.

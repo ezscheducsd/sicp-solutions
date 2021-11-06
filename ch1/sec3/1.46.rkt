@@ -1,6 +1,6 @@
 #lang racket
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (define (iterative-improve good-enough? improve-guess)
   (lambda (guess)

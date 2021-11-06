@@ -3,7 +3,7 @@
 ; Filter a sequence only to those elements
 ; that satisfy a given predicate.
 
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (define (odd? x)
   (not (even? x)))

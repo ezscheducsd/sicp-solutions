@@ -6,7 +6,7 @@
 ;return the average of x and f(x)
 
 (require "1.3.3-fixed-point.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 (provide average-damp)
 

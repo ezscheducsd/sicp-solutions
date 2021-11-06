@@ -1,7 +1,7 @@
 #lang racket
 
 (require "2.2.3-sequences.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; representing some  list-manipulation operations
 ; as accumulations:

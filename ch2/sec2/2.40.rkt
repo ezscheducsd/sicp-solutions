@@ -1,7 +1,7 @@
 #lang racket
 
 (require "2.2.3-sequences.rkt")
-(require sicp/mathlib)
+(require sicp-helpers/mathlib)
 
 ; unique-pairs
 ; given integer n, generate the sequence of pairs
