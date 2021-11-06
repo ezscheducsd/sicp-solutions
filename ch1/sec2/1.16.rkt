@@ -18,22 +18,22 @@
 ; (b^n/2)^2
 ; = (b^2)^n/2.
 
-; If n is odd, we can multiply the current
-; multiplicand by the base, subtract 1 from the exponent.
+(define (is-even? x)
+  (= 0 (remainder x 2)))
 
-(define (is-even x)
-    (= 0 (remainder x 2)))
-
-(define (square x)
-    (* x x))
-
+; Idea for exp-iter:
+; If n = 0, return a
+; If n is even, square b and divide n by 2
+; Else, set a to a*b, decrement n
 (define (exp-iter b n)
-    (define (exp-iter-helper b n a)
-        (cond   ((= n 0) a)
-                ((is-even n) (exp-iter-helper (square b) (/ n 2) a))
-                (else (exp-iter-helper b (- n 1) (* a b)))))
-    (exp-iter-helper b n 1))
-
+  (define (helper a b n)
+    (cond
+      ((= 0 n) a)
+      ((is-even? n)
+       (helper a (* b b) (/ n 2)))
+      (else
+       (helper (* a b) b (- n 1)))))
+  (helper 1 b n))
 
 (exp-iter 2 0)
 (exp-iter 2 2)

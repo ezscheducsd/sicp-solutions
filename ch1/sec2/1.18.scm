@@ -7,9 +7,9 @@
 ; that our language can only add, not multiply) is analogous
 ; to the expt procedure:
 (define (* a b)
-(if (= b 0)
-0
-(+ a (* a (- b 1)))))
+  (if (= b 0)
+      0
+      (+ a (* a (- b 1)))))
 ; This algorithm takes a number of steps that is linear in b .
 ; Now suppose we include, together with addition, opera-
 ; tions double , which doubles an integer, and halve , which
@@ -44,10 +44,10 @@
     (fast-mult-iter a b 0))
 
 
-; (fast-mult 3 4)
-; (fast-mult 5 5)
-; (fast-mult 23 24)
-; (fast-mult 12 12)
-; (fast-mult 3 27)
-; (fast-mult 0 23)
-; (fast-mult 23 0)
+ (fast-mult 3 4)
+ (fast-mult 5 5)
+ (fast-mult 23 24)
+ (fast-mult 12 12)
+ (fast-mult 3 27)
+ (fast-mult 0 23)
+ (fast-mult 23 0)
