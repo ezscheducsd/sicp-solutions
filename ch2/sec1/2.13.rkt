@@ -18,7 +18,9 @@
 ; width: c1c2t1 + c1c2t2
 ; center: c1c2 + c1c2t1t2
 
-; tolerance ratio: (t1t2)/(1 + t1t2)
+; tolerance ratio: (t1 + t2)/(1 + t1t2)
+; if t1 and t2 are sufficiently small, then t1t2 is close to 0,
+; which means this quantity is very close to t1 + t2
 
 (require sicp-helpers/mathlib)
 (require "2.1.4-interval.rkt")

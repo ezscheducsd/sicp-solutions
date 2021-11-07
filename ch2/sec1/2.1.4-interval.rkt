@@ -4,6 +4,7 @@
          upper-bound
          lower-bound
          add-interval
+         sub-interval
          mul-interval
          div-interval
          display-interval)
@@ -36,21 +37,6 @@
    (- (lower-bound x) (upper-bound y))
    (- (upper-bound x) (lower-bound y))))
 
-; Exercise 2.9: Width of a arithmetic combination of intervals.
-; Width of resulting interval of addition:
-; width(i1 + i2)
-; = ((upper-i1 + upper-i2) - (lower-i1 + lower-i2)) / 2
-; = ((upper-i1 - lower-i1) + (upper-i2 - lower-i2)) / 2
-; = width(i1) + width(i2)
-
-; Width of resulting interval in subtraction:
-; width(i1 - i2)
-; = ( (upper-i1 - lower-i2) - (lower-i1 - upper-i2) ) / 2
-; = ( (upper-i1 - lower-i1) + (upper-i2 - lower-i2) ) / 2
-; = width-i1 + width-i2.
-
-; Width of multipication: FIXME.
-
 (define (mul-interval x y)
   (let ((p1 (* (lower-bound x) (lower-bound y)))
         (p2 (* (lower-bound x) (upper-bound y)))
@@ -71,7 +57,5 @@
        x
        (make-interval (/ 1.0 (upper-bound y))
                       (/ 1.0 (lower-bound y))))))
-
-; Exercise 2.11: I'll come back to this one sometime.
 
 (module+ test)

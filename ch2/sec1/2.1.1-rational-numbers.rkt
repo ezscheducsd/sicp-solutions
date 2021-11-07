@@ -17,8 +17,6 @@
 ; If opposite signs, make only the numer negative.
 ; If same sign, product is >= 0.
 ; If opposite signs, product is < 0
-
-
 (define (make-rat n d)
   (define (sign x)
     (if (< x 0)
@@ -54,3 +52,7 @@
 (define (div-rat x y)
   (make-rat (* (numer x) (denom y))
             (* (denom x) (numer y))))
+
+(provide make-rat
+         numer
+         denom)
