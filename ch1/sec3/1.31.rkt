@@ -10,10 +10,22 @@
       (* (term a)
          (prod term (next a) next b))))
 
+(define (prod-iter term a next b)
+  (define (helper p cur)
+    (if (> cur b)
+        p
+        (helper (* p (term cur))
+                (next cur))))
+  (helper 1 a)
+  )
+
 
 ;Factorial: product of identity starting from 1 to n
 (define (factorial n)
   (prod identity 1 inc n))
+
+(define (factorial-iter n)
+  (prod-iter identity 1 inc n))
 
 
 ; pi/4 approximation.
@@ -37,5 +49,9 @@
 (module+ test
   (require rackunit)
   (check-eq? 1 (factorial 0))
+  (check-eq? 1 (factorial-iter 0))
   (check-eq? 1 (factorial 1))
-  (check-eq? 120 (factorial 5)))
+  (check-eq? 120 (factorial 5))
+  (check-eq? 120 (factorial-iter 5))
+  (* 4 (pi-over-4 100000))
+  )

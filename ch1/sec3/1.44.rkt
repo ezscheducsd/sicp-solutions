@@ -1,32 +1,36 @@
 #lang racket
 
-; smoothed version of a function f:
-; the function whose value at point x is the average
-; of f(x - dx), f(x), f(x + dx)
-
+(require sicp-helpers/mathlib)
 (require "1.43.rkt")
 
-(define dx 0.00001)
-
-; returns a procedure that computes
-; the smoothed f
+(define dx 0.0001)
+(define (avg-3 x y z)
+  (/ (+ x y z) 3.0))
 (define (smooth f)
-  (define (avg x y z)
-    (/ (+ x y z) 3.0))
   (lambda (x)
-    (avg (f (- x dx)) (f x) (f (+ x dx)))))
+    (avg-3 (f (- x dx))
+           (f x)
+           (f (+ x dx)))))
 
-; given f, n-folded smooth f is:
-; smooth (smooth (smooth (... smooth(f(x))))), with n smooth applications.
-; To get the n-folded smooth function,
-; idea: repeat smooth to f n times.
-(define (n-folded-smooth f n)
-  ((repeated smooth n) f))
+; N-fold smooth function
+; so (n-fold-smooth f n)
+; return a function
+; x -> smooth^n(x)
+
+; How to express this in terms of smooth and repeated?
+; remember, repeated takes a function f,
+; returns the function
+; x -> f^n(x)
+; 
+(define (n-fold-smooth f n)
+  (let ((smooth-f (smooth f)))
+    ((repeated smooth n) f)))
 
 (module+ test
-  (sin 1)
-  ((n-folded-smooth sin 1) 1)
-  ((n-folded-smooth sin 2) 1)
-  ((n-folded-smooth sin 3) 1)
-  ((n-folded-smooth sin 5) 1)
-  ((n-folded-smooth sin 10) 1))
+  (define smooth-square (smooth square))
+  (smooth-square 7)
+
+  (define n 5)
+  (define n-smooth-square (n-fold-smooth square 5))
+  (n-smooth-square 7)
+  )

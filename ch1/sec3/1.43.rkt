@@ -1,24 +1,23 @@
 #lang racket
 
+; Write a procedure that takes
+; a numerical function f, returns
+; the procedure that computes f^n(x)
+
+; If n = 1, then this is just the same function.
+; If n is greater than 1, then
+; we can compose f with the repeated (n - 1) version.
+
 (require "1.42.rkt")
 (require sicp-helpers/mathlib)
-
-; repeated application n times:
-; as a recursive procedure:
-; if n = 1, then it is just the original function.
-; if n > 1, then it is a function taking x
-; and applying f to x a total of n times.
-; Idea: compose f with (repeated f n-1)
-; This is the function that calculates f (f^(n-1)(x))
-; Final return value: a function taking a single input x
-; and applying f n times to x.
-(provide repeated)
 
 (define (repeated f n)
   (if (= n 1)
       f
       (compose f (repeated f (- n 1)))))
 
+(provide repeated)
+
 (module+ test
-  (require rackunit)
-  (check-eq? ((repeated square 2) 5) 625))
+  ((repeated square 2) 5)
+  )
