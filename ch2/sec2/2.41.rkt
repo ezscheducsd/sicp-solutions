@@ -42,4 +42,5 @@
                (unique-triples-2 n))))
 
 (module+ test
+  (unique-triples-2 4)
   (triples-sum-s 7 12))
